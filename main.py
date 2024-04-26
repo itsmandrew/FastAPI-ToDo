@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from models import Todo
 
 app = FastAPI()
 
@@ -11,7 +12,9 @@ async def root():
 todos = []
 
 # Get all todos
-
+@app.get("/todos")
+async def get_todos():
+    return {"todos" : todos}
 
 # Get single todo
 
